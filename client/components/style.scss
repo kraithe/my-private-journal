@@ -1,0 +1,170 @@
+@mixin saveBtns { // Save/no-save button
+  color: darkgray;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin closeModalBtn { // x-out of modal
+  color: rgb(69, 17, 85);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: inline;
+}
+
+@mixin editDeleteBtns($theme: rgb(91, 91, 92)) { // entryList edit/delete btns
+  background: #2c2c2c;
+  color: $theme;
+  font-size: 1rem;
+  margin: 2rem;
+  padding: .5rem 1.8rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin formInput { // Create/Edit journal entry input area
+  color: rgb(124, 107, 129);
+}
+
+// Resets
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.entrylist-content {
+  tr { // set sizing of rows
+    width: 80%;
+    height: 2rem;
+    align-items: center;
+    margin: .5rem;
+    padding: .5rem;
+  }
+  th { // categories
+    align-items: center;
+    color: rgb(31, 42, 19);
+    font-size: 1.25rem;
+    margin: .5rem;
+    padding: .5rem;
+  }
+  td { // date text, journal entry text
+    font-size: 1rem;
+    margin: .25rem;
+    padding: .25rem;
+    align-items: center;
+  }
+  button {
+    @include editDeleteBtns($theme: LightGray);
+  }
+}
+
+.navbar-content { // nested, CreateEntry
+  align-items: center;
+  font: Helvetica;
+  form {
+    input[type=text] {
+      padding: .5rem;
+      margin: 1rem;
+      border-radius: 1rem;
+      box-shadow:0 0 1.5rem .4rem rgba(0,0,0,0.06);
+      background-color: seashell;
+      &::placeholder {
+        color: darkseagreen;
+      }
+    }
+  }
+  button {
+    font: Helvetica;
+  }
+}
+
+.new-trigger { // CreateEntry, style as its own button
+  color: rgb(26, 141, 84);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.edit-trigger {
+  @include editDeleteBtns(skyblue);
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all .7s ease;
+}
+
+.modal-content { // frame sizing
+  background: whitesmoke;
+  width: 80%;
+  height: auto;
+  button {
+    background: royalblue;
+  }
+}
+
+.modal-header { // static <h> text, x-out button
+  font-size: 1.25rem;
+  button {
+    @include closeModalBtn;
+  }
+}
+
+.modal-body { // form, input text, placeholder
+  color: rgb(53, 51, 51);
+  input[type=text] {
+    @include formInput;
+  }
+}
+
+.modal-footer { // static text, 2 buttons (same params)
+  margin-bottom: 1rem;
+  border: 1rem;
+  button {
+    @include saveBtns;
+  }
+}
+
+.modal-backdrop {
+  background: rgba(49, 49, 49, 0.7);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  transition: all 1s;
+}
+
+
+
+/*
+background
+height
+width
+color
+
+margin
+padding
+border
+
+cursor
+
+font-size
+font-family
+outline
+
+transition
+transform: toggled ? 'translateY(0vh)' : 'translateY(-100vh)',
+opacity: toggled ? '1' : '0'
+
+justify-content: space-between / center
+align-items: center
+display: flex / block
+*/
