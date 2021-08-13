@@ -3,6 +3,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  margin: 2rem;
 }
 
 @mixin closeModalBtn { // x-out of modal
@@ -26,6 +27,8 @@
 
 @mixin formInput { // Create/Edit journal entry input area
   color: rgb(124, 107, 129);
+  width: 80%;
+  align-content: center;
 }
 
 // Resets
@@ -45,13 +48,14 @@ body {
     width: 80%;
     height: 2rem;
     align-items: center;
+    justify-content: center;
     margin: .5rem;
     padding: .5rem;
   }
-  th { // categories
+  th { // "Journal date" category style, not actual journal dates
     align-items: center;
     color: rgb(31, 42, 19);
-    font-size: 1.25rem;
+    font-size: .75rem;
     margin: .5rem;
     padding: .5rem;
   }
@@ -66,8 +70,10 @@ body {
   }
 }
 
-.navbar-content { // nested, CreateEntry
-  align-items: center;
+.navbar-content { // nested element is CreateEntry
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
   font: Helvetica;
   form {
     input[type=text] {
@@ -86,14 +92,14 @@ body {
   }
 }
 
-.new-trigger { // CreateEntry, style as its own button
+.new-trigger { // CreateEntry modal toggle button
   color: rgb(26, 141, 84);
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-.edit-trigger {
+.edit-trigger { // is this used/needed?
   @include editDeleteBtns(skyblue);
 }
 
@@ -105,15 +111,6 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   transition: all .7s ease;
-}
-
-.modal-content { // frame sizing
-  background: whitesmoke;
-  width: 80%;
-  height: auto;
-  button {
-    background: royalblue;
-  }
 }
 
 .modal-header { // static <h> text, x-out button
@@ -138,6 +135,48 @@ body {
   }
 }
 
+/*
+Class structure
+
+journal-app
+  .container
+    .navbar-content
+      form, input(text), button
+      CreateEntry
+        .new-trigger
+          button, text
+        EntryModal
+          (as below)
+    .entrylist-content
+      tr
+        th
+      tr
+        td
+          button (maybe give this its own class-styling?)
+          EditEntry
+            .edit-trigger
+              button, text
+            EntryModal
+              .modal-container
+                .modal-header
+                  text
+                .modal-body
+                  .journal-input (form, input=text)
+                .modal-footer
+                  text
+                  .modal-button (2x)
+
+
+-------- Possibly unnecessary -------
+.modal-content {
+  background: whitesmoke;
+  width: 80%;
+  height: auto;
+  button {
+    @include saveBtns();
+  }
+}
+
 .modal-backdrop {
   background: rgba(49, 49, 49, 0.7);
   height: 100%;
@@ -145,28 +184,16 @@ body {
   position: fixed;
   transition: all 1s;
 }
-
+*/
 
 
 /*
-background
-height
-width
-color
-
 margin
 padding
 border
-
-cursor
-
-font-size
-font-family
 outline
 
-transition
-transform: toggled ? 'translateY(0vh)' : 'translateY(-100vh)',
-opacity: toggled ? '1' : '0'
+cursor
 
 justify-content: space-between / center
 align-items: center
