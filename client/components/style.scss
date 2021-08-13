@@ -36,6 +36,10 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  transition: all 500ms ease-in-out;
+}
+
 .entrylist-content {
   tr { // set sizing of rows
     width: 80%;

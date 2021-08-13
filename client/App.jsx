@@ -6,12 +6,14 @@ import axios from 'axios';
 function App(props) {
 
   let [entries, setEntries] = useState([]);
+  let [ready, setReady] = useState(false);
 
   const getEntries = async () => {
     try {
       let resp = await axios.get('http://localhost:3950/entries');
       let entryData = await resp.data;
       setEntries(entryData);
+      setReady(true);
     } catch (err) {
       console.error(err);
     }
@@ -27,8 +29,8 @@ function App(props) {
 
   return (
     <React.Fragment>
-      <div className="container">
-        <NavBar entries={entries} updateEntries={updateEntries} />
+      <NavBar entries={entries} updateEntries={updateEntries} />
+      <div className="container" style={{ opacity: ready ? '1' : '0' }} >
         <EntryList entries={entries} />
       </div>
     </React.Fragment>
