@@ -29,8 +29,8 @@ function App(props) {
 
   return (
     <React.Fragment>
-      <NavBar entries={entries} updateEntries={updateEntries} />
       <div className="container" style={{ opacity: ready ? '1' : '0' }} >
+        <NavBar entries={entries} updateEntries={updateEntries} />
         <EntryList entries={entries} />
       </div>
     </React.Fragment>
