@@ -18,8 +18,6 @@ const EntryList = (props) => {
         <thead>
           <tr>
             <th>Journal date</th>
-            <th>Edit entry</th>
-            <th>Remove entry</th>
           </tr>
         </thead>
         <tbody>
