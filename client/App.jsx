@@ -30,6 +30,9 @@ function App(props) {
   return (
     <React.Fragment>
       <div className="container" style={{ opacity: ready ? '1' : '0' }} >
+        <div className="title-bar">
+          myPrivateJournal
+        </div>
         <NavBar entries={entries} updateEntries={updateEntries} />
         <EntryList entries={entries} />
       </div>
