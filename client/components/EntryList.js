@@ -29,7 +29,9 @@ const EntryList = (props) => {
                 <EditEntry journalData={entry} />
               </td>
               <td>
-                <button onClick={() => deleteEntry(entry.entry_id)}>
+                <button
+                  className="delete-trigger"
+                  onClick={() => deleteEntry(entry.entry_id)}>
                   Delete
                 </button>
               </td>
