@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const SRC_DIR = path.join(__dirname, '/client');
 const DIST_DIR = path.join(__dirname, '/dist');
@@ -16,19 +15,18 @@ module.exports = {
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
-  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader", "sass-loader"]
+        use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   }
