@@ -27,8 +27,9 @@
 
 @mixin formInput { // Create/Edit journal entry input area
   color: rgb(124, 107, 129);
+  display: block;
   width: 80%;
-  align-content: center;
+  height: 30%;
 }
 
 // Resets
@@ -41,29 +42,30 @@ body {
 
 .container {
   width: 80%;
-  align-items: center;
-  transition: all 500ms ease-in-out;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 500ms ease-in-out;
 }
 
 .title-bar {
   font-family: Luminari;
   display: flex;
   justify-content: center;
+  padding: 1rem;
 }
 
-.navbar-content { // nested element is CreateEntry
-  width: 75%;
-  padding: 2rem;
-  justify-content: center;
+.navbar-content {
+  padding: .5rem;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   font: Helvetica;
   form {
     input[type=text] {
       width: 75%;
-      padding: .5rem;
       margin: 1rem;
+      padding: .5rem;
+      font-size: 1rem;
       border-radius: 1rem;
       box-shadow:0 0 1.5rem .4rem rgba(0,0,0,0.06);
       background-color: seashell;
@@ -76,18 +78,26 @@ body {
 }
 
 .navbar-search {
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
-.new-trigger { // CreateEntry modal toggle button
-  color: rgb(26, 141, 84);
+.new-btn { // CreateEntry modal toggle button
+  background: rgb(26, 141, 84);
+  color: whitesmoke;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
   border: none;
   outline: none;
+  margin: 1rem;
+  padding: 1rem;
   cursor: pointer;
 }
 
 .entrylist-content {
+  display: flex;
   align-items: center;
+  justify-content: center;
   tr { // set sizing of rows
     width: 90%;
     height: 2rem;
@@ -110,11 +120,11 @@ body {
   }
 }
 
-.edit-trigger { // is this used/needed?
+.edit-btn { // is this used/needed?
   @include editDeleteBtns(skyblue);
 }
 
-.delete-trigger {
+.delete-btn {
   @include editDeleteBtns(crimson);
 }
 
@@ -124,20 +134,28 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   transition: all .7s ease;
 }
 
 .modal-header { // static <h> text, x-out button
   font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
   button {
     @include closeModalBtn;
   }
 }
 
 .modal-body { // form, input text, placeholder
-  color: rgb(53, 51, 51);
-  input[type=text] {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 30%;
+  form[type=text] {
     @include formInput;
   }
 }
@@ -145,6 +163,8 @@ body {
 .modal-footer { // static text, 2 buttons (same params)
   margin-bottom: 1rem;
   border: 1rem;
+  display: flex;
+  justify-content: center;
   button {
     @include saveBtns;
   }

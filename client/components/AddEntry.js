@@ -32,7 +32,7 @@ const CreateEntry = () => {
 
   return (
     <React.Fragment>
-      <div className="new-trigger">
+      <div className="new-btn">
         <button
           type="button"
           onClick={() => setNewEntryToggled(true)}
@@ -44,7 +44,7 @@ const CreateEntry = () => {
           closeModal={cancelEntry}
           dateStamp={null}
           entryText={journalText}
-          headerText="Write in your journal"
+          headerText="Tell it how it is"
           handleSubmit={saveEntry}
           updateText={updateNewEntryText}
           /> : null}
@@ -52,12 +52,5 @@ const CreateEntry = () => {
     </React.Fragment>
     );
   };
-
-  //   style={{
-    //     transform: toggled ? 'translateY(0vh)' : 'translateY(-100vh)',
-    //     opacity: toggled ? '1' : '0'
-    //   }}
-    // >
-//  { toggled ? <div onClick={setToggled(false)} className="modal-backdrop"></div> : null }
 
 export default CreateEntry;

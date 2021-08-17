@@ -18,7 +18,6 @@ const NavBar = (props) => {
   return (
     <React.Fragment>
       <div className="navbar-content">
-        <CreateEntry />
         <form>
           Search your journal by topic
           <input
@@ -29,10 +28,14 @@ const NavBar = (props) => {
             >
           </input>
         </form>
-        <button onClick={(e) => fullTextSearch(e)}>
+        <button
+          className="navbar-search"
+          onClick={(e) => fullTextSearch(e)}
+        >
           Search
         </button>
       </div>
+      <CreateEntry />
     </React.Fragment>
   );
 };

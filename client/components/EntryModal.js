@@ -31,7 +31,7 @@ const EntryModal = (props) => {
           <h4>{props.headerText}</h4>
         </div>
         <div className="modal-body">
-          <form className="journal-input">
+          <form>
             <input
               type="text"
               value={props.entryText}
@@ -61,15 +61,5 @@ const EntryModal = (props) => {
     </React.Fragment>
   )
 };
-
-/*
-  <div className="modal-container"
-    style={{
-      transform: toggled ? 'translateY(0vh)' : 'translateY(-100vh)',
-      opacity: toggled ? '1' : '0'
-    }}
-  >
-  { toggled ? <div onClick={setToggled(false)} className="modal-backdrop"></div> : null }
-*/
 
 export default EntryModal;
