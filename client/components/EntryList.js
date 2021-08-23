@@ -15,16 +15,15 @@ const EntryList = (props) => {
   return (
     <React.Fragment>
       <table className="entrylist-content">
-        <thead>
-          <tr>
-            <th>Journal date</th>
-          </tr>
-        </thead>
         <tbody>
           {props.entries.map(entry => (
             <tr key={entry.entry_id}>
-              <td>{entry.entry_modified || entry.entry_created}</td>
-              <td>{entry.entry_text}</td>
+              <td className="entry-date">
+                { entry.entry_modified ? `${entry.entry_created} (edited on ${entry.entry_modified})` : entry.entry_created }
+              </td>
+              <td className="journal-text">
+                {entry.entry_text}
+              </td>
               <td>
                 <EditEntry journalData={entry} />
               </td>

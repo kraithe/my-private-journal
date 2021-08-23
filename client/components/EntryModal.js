@@ -32,13 +32,11 @@ const EntryModal = (props) => {
         </div>
         <div className="modal-body">
           <form>
-            <input
-              type="text"
+            <textarea
               value={props.entryText}
               placeholder="What's on your mind?"
               onChange={(e) => props.updateText(e.target.value)}
-            >
-            </input>
+            />
           </form>
         </div>
         <div className="modal-footer">

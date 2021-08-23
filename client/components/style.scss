@@ -28,8 +28,11 @@
 @mixin formInput { // Create/Edit journal entry input area
   color: rgb(124, 107, 129);
   display: block;
-  width: 80%;
-  height: 30%;
+  box-sizing: border-box;
+  border-radius: .5rem;
+  width: 100%;
+  height: 50%;
+  resize: vertical;
 }
 
 // Resets
@@ -59,7 +62,7 @@ body {
   padding: .5rem;
   display: flex;
   justify-content: center;
-  font: Helvetica;
+  // width: 75%;
   form {
     input[type=text] {
       width: 75%;
@@ -96,28 +99,22 @@ body {
 
 .entrylist-content {
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
-  tr { // set sizing of rows
-    width: 90%;
-    height: 2rem;
-    align-items: center;
-    margin: 1.2rem;
-    padding: 1.2rem;
-  }
-  th { // "Journal date" category style, not actual journal dates
-    align-items: center;
-    color: rgb(31, 42, 19);
-    font-size: .75rem;
-    margin: .5rem;
-    padding: .5rem;
-  }
-  td { // date text, journal entry text
-    font-size: 1rem;
-    margin: 2rem;
-    padding: 2rem;
-    align-items: center;
-  }
+}
+
+.journal-date {
+  font-size: 1rem;
+  margin: 2rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+.journal-text {
+  font-size: 1rem;
+  margin: 2rem;
+  padding: 2rem;
+  align-items: center;
 }
 
 .edit-btn { // is this used/needed?
@@ -140,6 +137,7 @@ body {
 
 .modal-header { // static <h> text, x-out button
   font-size: 1.25rem;
+  color: mediumturquoise;
   display: flex;
   justify-content: center;
   padding-top: 3rem;
@@ -153,10 +151,13 @@ body {
   margin-left: auto;
   display: flex;
   justify-content: center;
-  width: 80%;
-  height: 30%;
-  form[type=text] {
-    @include formInput;
+  width: 100%;
+  height: 50%;
+  form {
+    width: 80%;
+    textarea {
+      @include formInput;
+    }
   }
 }
 
@@ -206,19 +207,4 @@ container >
               .modal-footer
                 text
                 .modal-button (2x)
-
-                a. Check the container
-                1. Do the NavBar - search field, buttons
-                2. Do the EntryList - layout, buttons, **add classes as needed!!**
-                3. Do the Modal - should be no colliding styles!
-*/
-
-
-/*
-margin
-padding
-border
-outline
-
-cursor
 */
