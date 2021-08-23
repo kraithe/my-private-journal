@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import EntryModal from './EntryModal.js'
 import axios from 'axios';
+const dayjs = require('dayjs');
 
 const CreateEntry = () => {
   let [newEntryToggled, setNewEntryToggled] = useState(false);
@@ -17,10 +18,11 @@ const CreateEntry = () => {
   const saveEntry = async (e) => {
     e.preventDefault();
     let newDate = new Date();
+    let formatted = dayjs().format('DD/MM/YYYY');
     try {
       let resp = await axios.post('http://localhost:3950/newEntry', {
         entry_text: journalText,
-        entry_created: newDate,
+        entry_created: formatted,
         entry_modified: null
       });
       setNewEntryToggled(false);

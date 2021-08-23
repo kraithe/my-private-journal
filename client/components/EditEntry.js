@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import EntryModal from './EntryModal.js';
 import axios from 'axios';
+const dayjs = require('dayjs');
 
 const EditEntry = ({ journalData }) => {
   let [updatedEntryText, setUpdatedEntryText] = useState(journalData.entry_text);
@@ -17,10 +18,11 @@ const EditEntry = ({ journalData }) => {
   const saveEdits = async (e) => {
     e.preventDefault();
     let newDate = Date.now();
+    let formatted = dayjs().format('DD/MM/YYYY');
     try {
       let resp = await axios.put(`http://localhost:3950/entry/${journalData.entry_id}`, {
         entry_text: updatedEntryText,
-        entry_modified: newDate
+        entry_modified: formatted
       });
       window.location = '/';
     } catch (err) {
@@ -30,7 +32,7 @@ const EditEntry = ({ journalData }) => {
 
   return (
     <React.Fragment>
-      <div className="edit-trigger">
+      <div className="edit-btn">
         <button
           type="button"
           onClick={() => setEditToggled(true)}
@@ -40,7 +42,7 @@ const EditEntry = ({ journalData }) => {
       <div>
       {editToggled ? <EntryModal
         closeModal={cancelEdits}
-        dateStamp={journalData.entry_modified ? `Journal entry last modified on ${journalData.entry_modified}` : null}
+        dateStamp={journalData.entry_modified ? `Editing journal entry from ${journalData.entry_modified}` : null}
         entryText={updatedEntryText}
         headerText={`Editing your journal from ${journalData.entry_created}`}
         handleSubmit={saveEdits}
