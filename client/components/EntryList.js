@@ -29,7 +29,7 @@ const EntryList = (props) => {
               </td>
               <td>
                 <button
-                  className="delete-trigger"
+                  className="delete-btn"
                   onClick={() => deleteEntry(entry.entry_id)}>
                   Delete
                 </button>

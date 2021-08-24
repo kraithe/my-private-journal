@@ -19,21 +19,23 @@ const NavBar = (props) => {
     <React.Fragment>
       <div className="navbar-content">
         <form>
-          Search your journal by topic
+        <label for="search-form">Search your journal by topic:</label>
           <input
             type="text"
+            id="search-form"
+            name="search-form"
             value={searchTerm}
             placeholder="e.g. school, anniversary, travel"
             onChange={(e) => setSearchTerm(e.target.value)}
             >
           </input>
-        </form>
-        <button
-          className="navbar-search"
-          onClick={(e) => fullTextSearch(e)}
-        >
+          <button
+            className="navbar-search"
+            onClick={(e) => fullTextSearch(e)}
+          >
           Search
         </button>
+        </form>
       </div>
       <CreateEntry />
     </React.Fragment>

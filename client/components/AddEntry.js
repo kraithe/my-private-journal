@@ -34,9 +34,10 @@ const CreateEntry = () => {
 
   return (
     <React.Fragment>
-      <div className="new-btn">
+      <div>
         <button
           type="button"
+          className="new-btn"
           onClick={() => setNewEntryToggled(true)}
           > Write in your journal
         </button>

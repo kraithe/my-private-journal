@@ -6,41 +6,40 @@
   margin: 2rem;
 }
 
-@mixin closeModalBtn { // x-out of modal
-  color: rgb(69, 17, 85);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  position: inline;
-}
-
 @mixin editDeleteBtns($theme: rgb(91, 91, 92)) { // entryList edit/delete btns
   background: #2c2c2c;
   color: $theme;
+  display: inline-block;
   font-size: 1rem;
-  margin: 2rem;
+  margin: .25rem .8rem .8rem .25rem;
   padding: .5rem 1.8rem;
-  border: none;
-  outline: none;
+  border-radius: .125rem;
   cursor: pointer;
 }
 
 @mixin formInput { // Create/Edit journal entry input area
-  color: rgb(124, 107, 129);
+  color: rgb(229, 221, 231);
+  font-size: 1rem;
+  background: linear-gradient(rgba(97, 149, 202, 0.719), rgba(245, 255, 250, 0.575));
   display: block;
+  padding: .75rem;
   box-sizing: border-box;
-  border-radius: .5rem;
+  border: .25rem rgba(192, 192, 192, 0.719);
+  border-radius: 1rem;
   width: 100%;
   height: 50%;
   resize: vertical;
 }
 
-// Resets
-body {
+* {
   font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background: linear-gradient(0.25turn, slategray, mintcream 30%, teal);
 }
 
 .container {
@@ -53,21 +52,25 @@ body {
 
 .title-bar {
   font-family: Luminari;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
 
 .navbar-content {
-  padding: .5rem;
-  display: flex;
-  justify-content: center;
-  // width: 75%;
+  padding: .2rem;
   form {
+    padding: 1rem 1.8rem;
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     input[type=text] {
-      width: 75%;
-      margin: 1rem;
+      width: 25%;
       padding: .5rem;
+      margin: 1rem;
       font-size: 1rem;
       border-radius: 1rem;
       box-shadow:0 0 1.5rem .4rem rgba(0,0,0,0.06);
@@ -81,33 +84,45 @@ body {
 }
 
 .navbar-search {
-  padding: 1rem;
+  vertical-align: middle;
+  font-size: .8rem;
+  height: 55%;
+  padding: .5rem;
+  border-radius: .4rem;
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .new-btn { // CreateEntry modal toggle button
   background: rgb(26, 141, 84);
-  color: whitesmoke;
-  font-size: 1rem;
+  font-size: 2rem;
+  margin: .2rem;
+  padding: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-rendering: auto;
   display: flex;
-  justify-content: center;
-  border: none;
-  outline: none;
-  margin: 1rem;
-  padding: 1rem;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  border-radius: .4rem;
   cursor: pointer;
 }
 
 .entrylist-content {
   display: flex;
-  // align-items: center;
   justify-content: center;
+  td {
+    vertical-align: top;
+    text-align: start;
+    padding: .5rem .2rem;
+  }
 }
 
 .journal-date {
-  font-size: 1rem;
+  font-size: .5rem;
   margin: 2rem;
   padding: 2rem;
-  align-items: start;
 }
 
 .journal-text {
@@ -115,9 +130,10 @@ body {
   margin: 2rem;
   padding: 2rem;
   align-items: center;
+  white-space: pre-wrap;
 }
 
-.edit-btn { // is this used/needed?
+.edit-btn {
   @include editDeleteBtns(skyblue);
 }
 
@@ -135,15 +151,12 @@ body {
   transition: all .7s ease;
 }
 
-.modal-header { // static <h> text, x-out button
+.modal-header {
   font-size: 1.25rem;
   color: mediumturquoise;
   display: flex;
   justify-content: center;
   padding-top: 3rem;
-  button {
-    @include closeModalBtn;
-  }
 }
 
 .modal-body { // form, input text, placeholder
@@ -151,7 +164,6 @@ body {
   margin-left: auto;
   display: flex;
   justify-content: center;
-  width: 100%;
   height: 50%;
   form {
     width: 80%;

@@ -32,9 +32,10 @@ const EditEntry = ({ journalData }) => {
 
   return (
     <React.Fragment>
-      <div className="edit-btn">
+      <div>
         <button
           type="button"
+          className="edit-btn"
           onClick={() => setEditToggled(true)}
           > Edit
         </button>
