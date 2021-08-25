@@ -19,7 +19,10 @@ const EntryList = (props) => {
           {props.entries.map(entry => (
             <tr key={entry.entry_id}>
               <td className="entry-date">
-                { entry.entry_modified ? `${entry.entry_created} (edited on ${entry.entry_modified})` : entry.entry_created }
+                {entry.entry_created}
+                <div className="edited-yn">
+                { entry.entry_modified ? `(edited on ${entry.entry_modified})` : null }
+                </div>
               </td>
               <td className="journal-text">
                 {entry.entry_text}
