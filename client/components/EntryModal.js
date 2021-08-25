@@ -40,16 +40,16 @@ const EntryModal = (props) => {
           </form>
         </div>
         <div className="modal-footer">
-          {props.dateStamp || null}
           <button
             type="button"
+            className="modal-save"
             onClick={(e) => handleSave(e)}
           >
             Save to journal
           </button>
           <button
             type="button"
-            className="modal-button"
+            className="modal-delete"
             onClick={() => handleCancel()}
           >
             Cancel
