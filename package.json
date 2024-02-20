@@ -9,7 +9,7 @@
     "start": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Keira Element",
+  "author": "Kara Raithe",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.14.6",
